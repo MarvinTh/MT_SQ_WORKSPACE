@@ -18,7 +18,7 @@ public class FuchimiGameRulesTest {
 			  break;
 		  }
 		  
-		 Boolean youWin = updateGame(inputToHand(input),inputToHand((int)(Math.random()* (4-1)+1)));
+		 Boolean youWin = updateGame(inputToHand(input),inputToHand((int)(Math.random()* (64-1)+1)));
 		 output(youWin);
 		 System.out.println("");
 	  }
