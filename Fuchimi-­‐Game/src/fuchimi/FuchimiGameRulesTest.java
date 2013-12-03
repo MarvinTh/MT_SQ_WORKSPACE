@@ -25,7 +25,7 @@ public class FuchimiGameRulesTest {
   } 
  
   private static int input(){
-	  System.out.println("Enter 1 for Rock \n"+"Enter 2 for Paper \n"+"Enter 3 for Scissors\n"+"Enter 0 for Quit \n");
+	  System.out.println("Enter 1 for Rock \n"+"Enter 2 for Paper \n"+"Enter 3 for Scissors\n"+"Enter 4 for Spock\n"+"Enter 5 for Lizzard\n"+"Enter 0 for Quit \n");
 	  
 	  Scanner in  =	new	Scanner(System.in);	
 	  return in.nextInt();
@@ -57,6 +57,10 @@ public class FuchimiGameRulesTest {
 	    	  return new Paper(); 
 	      case 3:
 	    	  return new Scissors();
+	      case 4:
+	    	  return new Spock();
+	      case 5:
+	    	  return new Lizzard();
 	      default:
 	    	  return null;
 	  }

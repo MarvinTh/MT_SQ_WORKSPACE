@@ -26,4 +26,12 @@ public class Paper extends Hand{
 	protected Boolean loseAgainst(Scissors scissor) {
 		return true;
 	}
+	@Override
+	protected Boolean loseAgainst(Spock spock){
+		return false;
+	}
+	@Override
+	protected Boolean loseAgainst(Lizzard lizzard){
+		return true;
+	}
 }

@@ -25,4 +25,12 @@ public class Scissors extends Hand{
 	protected Boolean loseAgainst(Scissors scissor) {
 		return null;
 	}
+	@Override
+	protected Boolean loseAgainst(Spock spock){
+		return true;
+	}
+	@Override
+	protected Boolean loseAgainst(Lizzard lizzard){
+		return false;
+	}
 }

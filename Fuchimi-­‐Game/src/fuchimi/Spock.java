@@ -1,21 +1,21 @@
 package fuchimi;
 
-public class Rock extends Hand{
+public class Spock extends Hand{
 
 	@Override
 	public String toString(){
-		return "Rock";
+		return "Spock";
 	}
 
 	@Override
 	public Boolean beats(Hand hand) {
 		return hand.loseAgainst(this);
 	}
-	
+
 	
 	@Override
 	protected Boolean loseAgainst(Rock rock) {
-		return null;
+		return false;
 	}
 	@Override
 	protected Boolean loseAgainst(Paper paper) {
@@ -27,10 +27,10 @@ public class Rock extends Hand{
 	}
 	@Override
 	protected Boolean loseAgainst(Spock spock){
-		return true;
+		return null;
 	}
 	@Override
 	protected Boolean loseAgainst(Lizzard lizzard){
-		return false;
+		return true;
 	}
 }
