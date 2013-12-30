@@ -1,4 +1,5 @@
 package fuchimi;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import fuchimi.Hand; 
@@ -8,27 +9,44 @@ import fuchimi.Scissors;
  
 public class FuchimiGameRulesTest { 
  
-  public static void main(String[] args) {  
+  public static void maingame() {  
 	  boolean end = false;
 	  while(end == false){
 		  int input = input();
 		  
+		  if(inputIsValid(input)==false){
+			  System.out.println("Ihre Eingabe war ungültig- versuchen sie es erneut!\n");
+			  continue;
+		  }
 		  if(input == 0){
 			  end = true;
 			  break;
 		  }
 		  
-		 Boolean youWin = updateGame(inputToHand(input),inputToHand((int)(Math.random()* (64-1)+1)));
+		 Boolean youWin = updateGame(inputToHand(input),inputToHand((int)(Math.random()* (6-1)+1)));
 		 output(youWin);
 		 System.out.println("");
 	  }
+	  System.out.println("See you soon!");
   } 
  
+  private static boolean inputIsValid(int input){
+	  if(input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 0 || input == -1){
+		  return false;
+	  }
+	  else{
+		  return true;
+	  }
+  }
   private static int input(){
 	  System.out.println("Enter 1 for Rock \n"+"Enter 2 for Paper \n"+"Enter 3 for Scissors\n"+"Enter 4 for Spock\n"+"Enter 5 for Lizzard\n"+"Enter 0 for Quit \n");
 	  
 	  Scanner in  =	new	Scanner(System.in);	
-	  return in.nextInt();
+	  try{
+		  return in.nextInt();
+	  }catch(InputMismatchException e){
+		  return -1;
+	  }
   }
   
   private static Boolean updateGame(Hand yourHand, Hand computersHand){
@@ -49,7 +67,6 @@ public class FuchimiGameRulesTest {
   }
   
   private static Hand inputToHand(int inputInt){
-	  
 	  switch(inputInt){ 
 	      case 1: 
 	    	  return new Rock();
